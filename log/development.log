@@ -1,0 +1,180 @@
+Started GET "/" for 127.0.0.1 at 2023-12-17 20:56:09 +0200
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/a1111/.rvm/gems/ruby-2.7.2/gems/railties-6.1.7.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/a1111/.rvm/gems/ruby-2.7.2/gems/railties-6.1.7.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.6ms | Allocations: 445)
+Completed 200 OK in 16ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 3544)
+
+
+Started GET "/time" for ::1 at 2023-12-17 21:15:20 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TimeController#index as */*
+  Rendering text template
+  Rendered text template (Duration: 0.1ms | Allocations: 30)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 1744)
+
+
+Started GET "/time/city?cities=Kyiv,New%20York" for ::1 at 2023-12-17 21:15:45 +0200
+Processing by TimeController#city_time as */*
+  Parameters: {"cities"=>"Kyiv,New York"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 962)
+
+
+  
+NoMethodError (undefined method `zone' for #<Timezone::Zone name: "Kyiv">):
+  
+app/controllers/time_controller.rb:20:in `get_city_time'
+app/controllers/time_controller.rb:11:in `block in city_time'
+app/controllers/time_controller.rb:10:in `each'
+app/controllers/time_controller.rb:10:in `city_time'
+Started GET "/time/city?cities=New%20York" for ::1 at 2023-12-17 21:16:04 +0200
+Processing by TimeController#city_time as */*
+  Parameters: {"cities"=>"New York"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 1002)
+
+
+  
+NoMethodError (undefined method `zone' for #<Timezone::Zone name: "New York">):
+  
+app/controllers/time_controller.rb:20:in `get_city_time'
+app/controllers/time_controller.rb:11:in `block in city_time'
+app/controllers/time_controller.rb:10:in `each'
+app/controllers/time_controller.rb:10:in `city_time'
+Started GET "/time/city?cities=Kyiv,New%20York" for ::1 at 2023-12-17 21:16:58 +0200
+Processing by TimeController#city_time as */*
+  Parameters: {"cities"=>"Kyiv,New York"}
+Completed 500 Internal Server Error in 237259ms (Allocations: 87047)
+
+
+  
+NoMethodError (undefined method `zone' for #<Timezone::Zone name: "Kyiv">):
+  
+app/controllers/time_controller.rb:21:in `get_city_time'
+app/controllers/time_controller.rb:11:in `block in city_time'
+app/controllers/time_controller.rb:10:in `each'
+app/controllers/time_controller.rb:10:in `city_time'
+Started GET "/time/city?cities=Kyiv,New%20York" for ::1 at 2023-12-17 22:28:17 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TimeController#city_time as */*
+  Parameters: {"cities"=>"Kyiv,New York"}
+Completed 500 Internal Server Error in 453341ms (ActiveRecord: 0.0ms | Allocations: 49177)
+
+
+  
+NoMethodError (undefined method `zone' for #<Timezone::Zone name: "Kyiv">):
+  
+app/controllers/time_controller.rb:24:in `get_city_time'
+app/controllers/time_controller.rb:11:in `block in city_time'
+app/controllers/time_controller.rb:10:in `each'
+app/controllers/time_controller.rb:10:in `city_time'
+Started GET "/time/city?cities=Kyiv,New%20York" for ::1 at 2023-12-17 22:36:05 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TimeController#city_time as */*
+  Parameters: {"cities"=>"Kyiv,New York"}
+Completed 500 Internal Server Error in 729504ms (ActiveRecord: 0.0ms | Allocations: 3082741)
+
+
+  
+NoMethodError (undefined method `zone' for #<Timezone::Zone name: "Washington">):
+  
+app/controllers/time_controller.rb:24:in `get_city_time'
+app/controllers/time_controller.rb:11:in `block in city_time'
+app/controllers/time_controller.rb:10:in `each'
+app/controllers/time_controller.rb:10:in `city_time'
+Started GET "/time/city?cities=Kyiv,New%20York" for ::1 at 2023-12-17 22:48:28 +0200
+Processing by TimeController#city_time as */*
+  Parameters: {"cities"=>"Kyiv,New York"}
+Completed 500 Internal Server Error in 188719ms (Allocations: 595883)
+
+
+  
+Timezone::Error::InvalidZone (Timezone::Error::InvalidZone):
+  
+app/controllers/time_controller.rb:28:in `get_city_time'
+app/controllers/time_controller.rb:11:in `block in city_time'
+app/controllers/time_controller.rb:10:in `each'
+app/controllers/time_controller.rb:10:in `city_time'
+Started GET "/time/city?cities=Kyiv,New%20York" for ::1 at 2023-12-17 22:51:41 +0200
+Processing by TimeController#city_time as */*
+  Parameters: {"cities"=>"Kyiv,New York"}
+  Rendering text template
+  Rendered text template (Duration: 0.5ms | Allocations: 26)
+Completed 200 OK in 866ms (Views: 6.9ms | Allocations: 6464)
+
+
+Started GET "/time/city?cities=Minsk,New%20York" for ::1 at 2023-12-17 22:51:47 +0200
+Processing by TimeController#city_time as */*
+  Parameters: {"cities"=>"Minsk,New York"}
+  Rendering text template
+  Rendered text template (Duration: 0.6ms | Allocations: 26)
+Completed 200 OK in 847ms (Views: 3.7ms | Allocations: 4953)
+
+
+Started GET "/time/" for ::1 at 2023-12-17 23:00:04 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TimeController#index as */*
+  Rendering text template
+  Rendered text template (Duration: 0.1ms | Allocations: 30)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 1676)
+
+
+Started GET "/time/city?cities=Minsk,New%20York" for ::1 at 2023-12-17 23:00:11 +0200
+Processing by TimeController#city_time as */*
+  Parameters: {"cities"=>"Minsk,New York"}
+  Rendering text template
+  Rendered text template (Duration: 0.4ms | Allocations: 27)
+Completed 200 OK in 943ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 9930)
+
+
+Started GET "/time/city?cities=Minsk,New%20York" for ::1 at 2023-12-17 23:17:37 +0200
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TimeController#city_time as */*
+  Parameters: {"cities"=>"Minsk,New York"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1271)
+
+
+  
+Timezone::Error::InvalidConfig (missing api key):
+  
+app/controllers/time_controller.rb:20:in `get_city_time'
+app/controllers/time_controller.rb:11:in `block in city_time'
+app/controllers/time_controller.rb:10:in `each'
+app/controllers/time_controller.rb:10:in `city_time'
+Started GET "/time/city?cities=Minsk,New%20York" for ::1 at 2023-12-17 23:18:06 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TimeController#city_time as */*
+  Parameters: {"cities"=>"Minsk,New York"}
+  Rendering text template
+  Rendered text template (Duration: 0.4ms | Allocations: 29)
+Completed 200 OK in 996ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 11365)
+
+
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked host: adc1-193-194-108-34.ngrok-free.app
+Started GET "/time/city?cities=Minsk,New%20York" for 193.194.108.34 at 2023-12-17 23:45:41 +0200
+Cannot render console from 193.194.108.34! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TimeController#city_time as */*
+  Parameters: {"cities"=>"Minsk,New York"}
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | Allocations: 29)
+Completed 200 OK in 1090ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 11365)
+
+
+Started GET "/time/city?cities=Minsk,New%20York" for 193.194.108.34 at 2023-12-17 23:45:43 +0200
+Cannot render console from 193.194.108.34! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TimeController#city_time as */*
+  Parameters: {"cities"=>"Minsk,New York"}
+  Rendering text template
+  Rendered text template (Duration: 0.5ms | Allocations: 26)
+Completed 200 OK in 853ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 4464)
+
+
+Started GET "/time/city?cities=Minsk,New%20York" for 193.194.108.34 at 2023-12-17 23:45:45 +0200
+Cannot render console from 193.194.108.34! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TimeController#city_time as */*
+  Parameters: {"cities"=>"Minsk,New York"}
+  Rendering text template
+  Rendered text template (Duration: 0.5ms | Allocations: 26)
+Completed 200 OK in 846ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 4464)
+
+
